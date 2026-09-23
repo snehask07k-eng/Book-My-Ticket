@@ -1,102 +1,96 @@
-# Book My Ticket
+# 🎬 Book My Ticket
 
 ## 📌 Project Overview
 
-Book My Ticket is a backend web application developed using **Java and Spring Boot** for managing movie ticket booking operations.
+**Book My Ticket** is a web-based movie ticket booking application developed using **Java, Spring Boot, Spring MVC, Thymeleaf, Hibernate/JPA, and MySQL**.
 
-The application demonstrates backend development concepts including **Spring MVC, REST APIs, Hibernate/JPA, MySQL, and layered architecture**.
+The application provides functionality for managing movies, theatres, screens, seats, shows, users, and tickets through a Spring Boot backend with database persistence.
 
 ## 🛠️ Technologies Used
 
-* Java
-* Spring Boot
+* Java 17
+* Spring Boot 4.0.0
 * Spring MVC
-* REST API
-* Hibernate
-* JPA
-* MySQL
+* Spring Data JPA
+* Hibernate ORM
+* MySQL 8
+* Thymeleaf
 * Maven
-* HTML/CSS
-* Git & GitHub
+* HTML
+* CSS
+* JavaScript
+* Git
+* GitHub
 
-## ✨ Features
-
-* Movie management
-* Theatre management
-* Show management
-* User management
-* Ticket booking
-* Database operations using MySQL
-* REST API-based backend communication
-* Layered application architecture
-
-## 🏗️ Project Architecture
+## 🏗️ Application Architecture
 
 ```text
-Client
-  ↓
+Web Browser
+     ↓
+Thymeleaf / HTML
+     ↓
 Controller
-  ↓
-Service
-  ↓
-DAO / Repository
-  ↓
-Hibernate / JPA
-  ↓
+     ↓
+Service Layer
+     ↓
+Repository Layer
+     ↓
+Spring Data JPA
+     ↓
+Hibernate
+     ↓
 MySQL Database
 ```
 
-## 📂 Project Structure
+## ✨ Main Features
 
-```text
-Book-My-Ticket/
-│
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── ...
-│   │   │
-│   │   └── resources/
-│   │       └── application.properties
-│   │
-│   └── test/
-│
-├── pom.xml
-├── mvnw
-├── mvnw.cmd
-├── .gitignore
-└── README.md
-```
+* User management
+* Admin registration
+* Movie management
+* Theatre management
+* Screen management
+* Seat management
+* Show management
+* Show-seat management
+* Ticket management
+* MySQL database integration
+* Server-side web pages using Thymeleaf
+* Persistence using Spring Data JPA and Hibernate
+
+## 📦 Main Modules
+
+The project contains repository components for:
+
+* User
+* Movie
+* Theatre
+* Screen
+* Seat
+* Show
+* Show Seat
+* Ticket
 
 ## 🗄️ Database
 
-The application uses **MySQL** as the relational database.
+The application uses **MySQL** for persistent data storage.
 
-**Hibernate/JPA** is used to perform persistence and database operations.
-
-Database configuration can be maintained in:
+Database:
 
 ```text
-src/main/resources/application.properties
+book-my-ticket
 ```
 
-## 🔗 REST APIs
+The application connects to MySQL using the MySQL Connector/J driver.
 
-The application provides REST APIs for managing different modules such as movies, users, theatres, shows, and bookings.
+Hibernate/JPA is used for ORM and database operations.
 
-Example API operations:
+## 🔐 Admin Registration
 
-```text
-POST   /...
-GET    /...
-GET    /{id}
-PUT    /{id}
-DELETE /{id}
-```
+The application includes an admin registration process.
 
-> Replace the example paths above with the exact endpoint mappings implemented in this project.
+On application startup, the project checks/registers the administrator account through the application's admin registration component.
 
-## ▶️ How to Run
+## 🚀 How to Run
 
 ### 1. Clone the repository
 
@@ -106,23 +100,21 @@ git clone https://github.com/snehask07k-eng/Book-My-Ticket.git
 
 ### 2. Open the project
 
-Open the project in **IntelliJ IDEA** or **Eclipse**.
+Open the project using **IntelliJ IDEA** or **Eclipse**.
 
 ### 3. Configure MySQL
 
-Update the database username, password, and database name in:
+Make sure MySQL is installed and running.
+
+Update the database configuration in:
 
 ```text
 src/main/resources/application.properties
 ```
 
+Use your own local MySQL username and password.
+
 ### 4. Build the project
-
-Using Maven:
-
-```bash
-./mvnw clean install
-```
 
 On Windows:
 
@@ -130,28 +122,42 @@ On Windows:
 mvnw.cmd clean install
 ```
 
+Or using Maven:
+
+```bash
+mvn clean install
+```
+
 ### 5. Run the application
 
-Run the Spring Boot main application class.
+```bash
+mvnw.cmd spring-boot:run
+```
 
-## 🧪 API Testing
+The application is configured to run on:
 
-REST APIs can be tested using **Postman**.
+```text
+http://localhost
+```
 
-## 📚 Learning Outcomes
+## 🧪 Testing
 
-Through this project, I gained practical experience in:
+The application can be tested by opening the application in a browser and interacting with the available web pages.
 
-* Java backend development
-* Spring Boot application development
-* REST API development
-* Spring MVC
-* Hibernate/JPA
-* MySQL database integration
-* Layered architecture
-* Maven project management
-* API testing using Postman
-* Git and GitHub
+Backend/database functionality can also be verified through application logs and MySQL.
+
+## 📚 Key Learning Outcomes
+
+* Developed a Java web application using Spring Boot
+* Worked with Spring MVC and controller-based request handling
+* Implemented database persistence using Spring Data JPA
+* Used Hibernate ORM for database interaction
+* Integrated MySQL with a Spring Boot application
+* Worked with Thymeleaf for server-side web pages
+* Implemented layered application architecture
+* Worked with multiple JPA repository interfaces
+* Used Maven for project build and dependency management
+* Gained practical experience in developing a movie ticket booking application
 
 ## 👩‍💻 Developer
 
