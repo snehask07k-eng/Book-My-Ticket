@@ -1,96 +1,237 @@
 # 🎬 Book My Ticket
 
-## 📌 Project Overview
+A full-stack movie ticket booking application developed using **Java, Spring Boot, Spring MVC, Thymeleaf, Spring Data JPA, Hibernate, MySQL, Redis, and supporting services**.
 
-**Book My Ticket** is a web-based movie ticket booking application developed using **Java, Spring Boot, Spring MVC, Thymeleaf, Hibernate/JPA, and MySQL**.
+The application provides functionality for managing users, movies, theatres, screens, seats, shows, and booked tickets.
 
-The application provides functionality for managing movies, theatres, screens, seats, shows, users, and tickets through a Spring Boot backend with database persistence.
+## 🚀 Features
 
-## 🛠️ Technologies Used
-
-* Java 17
-* Spring Boot 4.0.0
-* Spring MVC
-* Spring Data JPA
-* Hibernate ORM
-* MySQL 8
-* Thymeleaf
-* Maven
-* HTML
-* CSS
-* JavaScript
-* Git
-* GitHub
-
-## 🏗️ Application Architecture
-
-```text
-Web Browser
-     ↓
-Thymeleaf / HTML
-     ↓
-Controller
-     ↓
-Service Layer
-     ↓
-Repository Layer
-     ↓
-Spring Data JPA
-     ↓
-Hibernate
-     ↓
-MySQL Database
-```
-
-## ✨ Main Features
-
+* User registration and login
 * User management
-* Admin registration
 * Movie management
 * Theatre management
 * Screen management
 * Seat management
 * Show management
-* Show-seat management
-* Ticket management
-* MySQL database integration
-* Server-side web pages using Thymeleaf
-* Persistence using Spring Data JPA and Hibernate
+* Movie ticket booking
+* Booked ticket management
+* Seat layout management
+* Password-related operations
+* Admin registration
+* Database initialization and data seeding
+* QR code generation
+* Email integration
+* Cloudinary integration for media management
+* Redis service integration
+* Global exception handling
+* AES-based encryption utility
 
-## 📦 Main Modules
+## 🛠️ Technologies Used
 
-The project contains repository components for:
+| Technology      | Purpose                         |
+| --------------- | ------------------------------- |
+| Java            | Application development         |
+| Spring Boot     | Backend framework               |
+| Spring MVC      | Web/application layer           |
+| Spring Data JPA | Database repository layer       |
+| Hibernate       | ORM                             |
+| MySQL           | Relational database             |
+| Redis           | Data/service integration        |
+| Thymeleaf       | Server-side web pages           |
+| Maven           | Build and dependency management |
+| Cloudinary      | Media/cloud image handling      |
+| HTML/CSS        | Frontend                        |
+| JavaScript      | Client-side functionality       |
+
+## 🏗️ Architecture
+
+```text
+                User / Browser
+                      │
+                      ▼
+              Thymeleaf / Web UI
+                      │
+                      ▼
+                 Controller
+                      │
+                      ▼
+                  Service
+                      │
+                      ▼
+                Repository
+                      │
+              ┌───────┴────────┐
+              ▼                ▼
+        JPA / Hibernate       Redis
+              │
+              ▼
+             MySQL
+```
+
+## 📂 Project Structure
+
+```text
+src/main/java/com/jsp/book/
+
+├── config/
+│   └── MyConfig.java
+│
+├── controller/
+│   └── UserController.java
+│
+├── dto/
+│   ├── LoginDto.java
+│   ├── MovieDto.java
+│   ├── PasswordDto.java
+│   ├── ScreenDto.java
+│   ├── SeatLayoutForm.java
+│   ├── SeatRowDto.java
+│   ├── ShowDto.java
+│   ├── TheaterDto.java
+│   └── UserDto.java
+│
+├── entity/
+│   ├── BookedTicket.java
+│   ├── Movie.java
+│   ├── Screen.java
+│   ├── Seat.java
+│   ├── Show.java
+│   ├── ShowSeat.java
+│   ├── Theater.java
+│   └── User.java
+│
+├── exception/
+│   └── GlobalExceptionHandler.java
+│
+├── repository/
+│   ├── MovieRepository.java
+│   ├── ScreenRepository.java
+│   ├── SeatRepository.java
+│   ├── ShowRepository.java
+│   ├── ShowSeatRepository.java
+│   ├── TheaterRepository.java
+│   ├── TicketRepository.java
+│   └── UserRepository.java
+│
+├── service/
+│   ├── RedisService.java
+│   ├── RedisServiceImpl.java
+│   ├── UserService.java
+│   └── UserServiceImpl.java
+│
+└── util/
+    ├── AdminRegistration.java
+    ├── AES.java
+    ├── CloudinaryHelper.java
+    ├── CloudinaryMigrator.java
+    ├── DataSeeder.java
+    ├── EmailHelper.java
+    └── QrHelper.java
+```
+
+## 🗃️ Main Entities
+
+The application contains the following major domain entities:
 
 * User
 * Movie
-* Theatre
+* Theater
 * Screen
 * Seat
 * Show
-* Show Seat
-* Ticket
+* ShowSeat
+* BookedTicket
+
+These entities are persisted using **JPA/Hibernate**.
+
+## 📦 DTO Layer
+
+DTO classes are used to transfer application data between different layers and handle form/request data.
+
+Examples include:
+
+* `LoginDto`
+* `MovieDto`
+* `ScreenDto`
+* `ShowDto`
+* `TheaterDto`
+* `UserDto`
+* `PasswordDto`
+* `SeatLayoutForm`
+
+## 🗄️ Repository Layer
+
+The project contains Spring Data repository interfaces for:
+
+* Movies
+* Screens
+* Seats
+* Shows
+* Show Seats
+* Theatres
+* Tickets
+* Users
+
+## 🔧 Utility Components
+
+The project includes utility components for:
+
+### AES
+
+Provides AES-based encryption-related functionality.
+
+### QR Helper
+
+Handles QR code generation functionality.
+
+### Email Helper
+
+Provides email-related functionality.
+
+### Cloudinary Helper
+
+Handles Cloudinary-related media operations.
+
+### Data Seeder
+
+Provides initial application data.
+
+### Admin Registration
+
+Handles administrator registration during application initialization.
+
+## ⚠️ Global Exception Handling
+
+The application contains a centralized:
+
+```text
+GlobalExceptionHandler
+```
+
+for handling application exceptions.
 
 ## 🗄️ Database
 
 The application uses **MySQL** for persistent data storage.
 
-Database:
+The database used by the application is:
 
 ```text
 book-my-ticket
 ```
 
-The application connects to MySQL using the MySQL Connector/J driver.
+Hibernate/JPA handles object-relational mapping between Java entities and database tables.
 
-Hibernate/JPA is used for ORM and database operations.
+## ▶️ How to Run
 
-## 🔐 Admin Registration
+### Prerequisites
 
-The application includes an admin registration process.
+Install:
 
-On application startup, the project checks/registers the administrator account through the application's admin registration component.
-
-## 🚀 How to Run
+* Java 17
+* MySQL 8
+* Maven
+* Git
 
 ### 1. Clone the repository
 
@@ -100,32 +241,24 @@ git clone https://github.com/snehask07k-eng/Book-My-Ticket.git
 
 ### 2. Open the project
 
-Open the project using **IntelliJ IDEA** or **Eclipse**.
+Open the project in **VS Code, IntelliJ IDEA, or Eclipse**.
 
 ### 3. Configure MySQL
 
-Make sure MySQL is installed and running.
-
-Update the database configuration in:
+Update your database configuration in:
 
 ```text
 src/main/resources/application.properties
 ```
 
-Use your own local MySQL username and password.
+Use your own MySQL username and password.
 
 ### 4. Build the project
 
-On Windows:
+Windows:
 
 ```bash
 mvnw.cmd clean install
-```
-
-Or using Maven:
-
-```bash
-mvn clean install
 ```
 
 ### 5. Run the application
@@ -142,22 +275,21 @@ http://localhost
 
 ## 🧪 Testing
 
-The application can be tested by opening the application in a browser and interacting with the available web pages.
-
-Backend/database functionality can also be verified through application logs and MySQL.
+The application can be tested through the web interface and by verifying database operations using MySQL.
 
 ## 📚 Key Learning Outcomes
 
-* Developed a Java web application using Spring Boot
-* Worked with Spring MVC and controller-based request handling
-* Implemented database persistence using Spring Data JPA
-* Used Hibernate ORM for database interaction
+* Developed a full-stack Java application using Spring Boot
+* Implemented MVC-based web application architecture
+* Worked with Spring Data JPA and Hibernate
 * Integrated MySQL with a Spring Boot application
-* Worked with Thymeleaf for server-side web pages
-* Implemented layered application architecture
-* Worked with multiple JPA repository interfaces
-* Used Maven for project build and dependency management
-* Gained practical experience in developing a movie ticket booking application
+* Implemented DTO-based data transfer
+* Worked with Redis integration
+* Implemented centralized exception handling
+* Worked with email and QR-code functionality
+* Integrated Cloudinary for media management
+* Used Maven for dependency and project management
+* Used Git and GitHub for source-code management
 
 ## 👩‍💻 Developer
 
